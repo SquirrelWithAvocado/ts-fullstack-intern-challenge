@@ -25,9 +25,14 @@ services:
       - cat-pinterest-net
     environment:
       NODE_ENV: prod
+      POSTGRES_USER: postgres        
+      POSTGRES_PASSWORD: 1           
+      POSTGRES_DB: support_lk_db     
     depends_on:
       cat-pinterest-api-pg:
         condition: service_healthy
+    ports:
+      - "3000:3000"
 
   cat-pinterest-front:
     container_name: cat-pinterest-front
